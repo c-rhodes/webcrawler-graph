@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	{% for link in links %}
+		<a href="page{{ link }}.html">Go to Page {{ link }}</a>		
+	{% endfor %}
+</body>
+</html>
