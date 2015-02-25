@@ -110,7 +110,8 @@ def build_pages(n):
     for i in range(1, n + 1):
         links = list(range(1, i))
         # Add the next page if (i + 1) if it isn't the last page (n + 1)
-        links += [i + 1] if i + 1 != n + 1 else []
+        if i + 1 != n + 1:
+            links.append(i + 1)
         context = dict(title='Page{}'.format(i), links=links)
         pages.append(template.render(context))
 
