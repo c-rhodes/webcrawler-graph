@@ -5,6 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 
 import matplotlib.pyplot as plt
 import networkx as nx
+import seaborn as sns
 
 path = str(Path(__file__).parent)
 jinja_env = Environment(loader=FileSystemLoader(path))
