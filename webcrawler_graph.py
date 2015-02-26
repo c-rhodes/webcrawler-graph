@@ -18,13 +18,12 @@ def main():
     # Construct the 'internet' with 10 apges
     internet = build_internet(build_pages(10))
     crawl(internet_graph, start_page, internet)
-    ranked_pages = pagerank(internet_graph)
 
     # Build a dictionary of labels key=node, value=label (pagename with pagerank as str)
     node_labels = {
         node: node.split('.html')[0] + '(PRank={})'.format(
             internet_graph.node[node]['pagerank']
-        ) for node in ranked_pages
+        ) for node in internet_graph.nodes()
     }
     draw_graph(internet_graph, node_labels=node_labels, node_text_size=10)
 
@@ -51,7 +50,7 @@ def draw_graph(graph, labels=None, node_labels=None, graph_layout='spring',
     title_font = dict(fontname='Helvetica', color='k', fontweight='bold', fontsize=14)
     plt.title('Graph of the Internet', title_font)
 
-    plt.text(0.5, 0.97, 'Node size ≈ PageRank',
+    plt.text(0.5, 0.97, 'Node size = PageRank',
              horizontalalignment='center',
              transform=plt.gca().transAxes)
     
